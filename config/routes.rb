@@ -1,5 +1,7 @@
 =begin
 Rails.application.routes.draw do
+  resources :comments
+  resources :posts
   get 'sessions/create'
 
   get 'sessions/destroy'
@@ -11,13 +13,17 @@ end
 =end
 
 #GoogleAuthExample::Application.routes.draw do
+
 Rails.application.routes.draw do
+  
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
+  resources :comments
+  resources :posts
 
-  root to: "home#show"
+  root to: "posts#index"
 end
