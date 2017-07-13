@@ -10,15 +10,18 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    redirect_to root_path
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+    redirect_to root_path
+    #@post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    redirect_to root_path
   end
 
   # POST /posts

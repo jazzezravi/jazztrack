@@ -1,22 +1,29 @@
+
+
+
+<% unless current_user.nil? %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>Trolls : </h1>
 
-<table>
+<table border=1>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Video</th>
-      <th colspan="3"></th>
+      
+      <th><p align='center'>Video</p></th>
+      <th><p align='center'>Title</p></th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %><% a=YouTubeAddy.extract_video_id(post.video) %></td>        
-        <td><% embed_url="<iframe width='420' height='315' src='http://www.youtube.com/embed/#{a}' frameborder='0' allowfullscreen></iframe>" %></td>        
+        <% a=YouTubeAddy.extract_video_id(post.video) %>
+        <% embed_url="<iframe width='420' height='315' src='http://www.youtube.com/embed/#{a}' frameborder='0' allowfullscreen></iframe>" %>       
         <td><%= embed_url.html_safe %> </td>
+        <td><%= post.title %></td>   
         <!-- <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
@@ -26,5 +33,12 @@
 </table>
 
 <br>
-
+<!--
 <%= link_to 'New Post', new_post_path %>
+-->
+
+<% else %>
+<br/>
+Please Signin to watch the Troll Videos:)
+
+<% end %>
