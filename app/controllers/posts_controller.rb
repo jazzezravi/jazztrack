@@ -15,8 +15,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    redirect_to root_path
-    #@post = Post.new
+    #redirect_to root_path
+    @post = Post.new
   end
 
   # GET /posts/1/edit
