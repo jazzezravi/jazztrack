@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
+  resource :home#, only: [:show]
   resources :comments
   resources :posts
 
-  root to: "posts#index"
+  #~ root to: "posts#index"
+  root to: "home#index"
 end

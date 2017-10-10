@@ -1,0 +1,23 @@
+<script>
+function update()
+  { 
+     $.get('/', function(data) 
+     {
+         $('#test').html(data);
+     });
+  }
+$(document).ready(function($){
+  window.setInterval('update()', 20*6000);
+});
+
+</script>
+<h1>Headlines</h1>
+<div id=test>
+
+<% @news.each do |new|%>
+ *<a target="_blank" href= <%= new.url %> >  <font color="purple"><%= new.content %></font></a>
+  <br />
+  <br />
+<% end %>
+
+</div>
